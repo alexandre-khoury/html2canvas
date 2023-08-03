@@ -80,6 +80,7 @@ import {paintOrder} from './property-descriptors/paint-order';
 import {webkitTextStrokeColor} from './property-descriptors/webkit-text-stroke-color';
 import {webkitTextStrokeWidth} from './property-descriptors/webkit-text-stroke-width';
 import {Context} from '../core/context';
+import {objectFit} from './property-descriptors/object-fit';
 
 export class CSSParsedDeclaration {
     animationDuration: ReturnType<typeof duration.parse>;
@@ -126,6 +127,7 @@ export class CSSParsedDeclaration {
     marginRight: CSSValue;
     marginBottom: CSSValue;
     marginLeft: CSSValue;
+    objectFit: ReturnType<typeof objectFit.parse>;
     opacity: ReturnType<typeof opacity.parse>;
     overflowX: OVERFLOW;
     overflowY: OVERFLOW;
@@ -194,6 +196,7 @@ export class CSSParsedDeclaration {
         this.marginRight = parse(context, marginRight, declaration.marginRight);
         this.marginBottom = parse(context, marginBottom, declaration.marginBottom);
         this.marginLeft = parse(context, marginLeft, declaration.marginLeft);
+        this.objectFit = parse(context, objectFit, declaration.objectFit);
         this.opacity = parse(context, opacity, declaration.opacity);
         const overflowTuple = parse(context, overflow, declaration.overflow);
         this.overflowX = overflowTuple[0];
